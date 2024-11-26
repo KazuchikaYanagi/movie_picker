@@ -68,7 +68,7 @@ const MovieDetail = () => {
           {Math.round(movieDetail?.vote_average * 10) / 10}
         </p>
 
-        <ul className="overflow-x-scroll flex">
+        <ul className="flex overflow-x-scroll w-screen">
           {movieReviews?.map((review) => (
             <ReviewCard review={review} />
           ))}
