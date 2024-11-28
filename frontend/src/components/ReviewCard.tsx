@@ -7,7 +7,7 @@ const ReviewCard = ({ review }) => {
   const { avatar_path, rating, username } = author_details;
 
   return (
-    <li className="bg-slate-300 mb-5 w-screen h-52 p-3">
+    <li className="bg-slate-300 p-3 mb-5 block w-screen h-52">
       <div className="flex mb-5">
         <img
           src={
@@ -24,13 +24,9 @@ const ReviewCard = ({ review }) => {
           {rating}
           <div>
             <FontAwesomeIcon icon={faStar} />
-
             <FontAwesomeIcon icon={faStar} />
-
             <FontAwesomeIcon icon={faStar} />
-
             <FontAwesomeIcon icon={faStar} />
-
             <FontAwesomeIcon icon={faStar} />
           </div>
         </p>

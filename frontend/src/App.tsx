@@ -40,10 +40,14 @@ const App = () => {
   //   getMovieDetail();
   // }, []);
 
+  const handleMovieInfo = () => {
+    console.log("hi");
+  };
+
   return (
     <>
       <Link to="/" />
-      {/* <MovieData.Provider value={fetchMovies}> */}
+      {/* <MovieData.Provider value={handleMovieInfo}> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
