@@ -9,8 +9,8 @@ const movie_controller_1 = __importDefault(require("../controllers/movie.control
 dotenv_1.default.config();
 const movieRouter = (0, express_1.Router)();
 movieRouter.get("/popular", movie_controller_1.default.popularMovies);
+movieRouter.get("/find/:title", movie_controller_1.default.findMatchedTitleMovie);
 movieRouter.get("/:id", movie_controller_1.default.movieDetail);
 movieRouter.get("/upcoming", movie_controller_1.default.upcomingMovies);
-movieRouter.post("/find/", movie_controller_1.default.findMatchedTitleMovie);
 // movieRouter.get("/discover", movieController.discoverMovies);
 exports.default = movieRouter;

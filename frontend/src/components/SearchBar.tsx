@@ -1,33 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+// import axios from "axios";
+import { MovieData } from "../App";
 
 const SearchBar = () => {
-  const [search, setSearch] = useState<string>("");
-
-  // useEffect(() => {
-  //   const searchMovies = async () => {
-  //     await axios.post(`http://localhost:3003/find/${title}`, {
-  //       title: search,
-  //     });
-  //   };
-  //   searchMovies();
-  // }, []);
-
-  const handleFetchData = async (title) => {
-    setSearch(title);
-    await axios.post(`http://localhost:3003/find/`, {
-      title: search,
-    });
-  };
+  const { search, setSearch } = useContext(MovieData);
 
   return (
     <div className="relative flex items-center">
       <input
         type="search"
         placeholder=""
-        onChange={(e) => handleFetchData(e.target.value)}
+        // onChange={(e) => handleFetchData(e.target.value)}
+        onChange={(e) => setSearch(e.target.value)}
         value={search}
         className="border p-1 rounded-full pl-8"
       />

@@ -30,6 +30,10 @@ const findMovies = (title) => __awaiter(void 0, void 0, void 0, function* () {
         console.error(err);
     }
 });
+const getMatchedTitleMovies = (title) => {
+    return findMovies(title);
+};
 exports.default = {
     findMovies,
+    getMatchedTitleMovies,
 };

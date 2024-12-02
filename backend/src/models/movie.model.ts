@@ -21,6 +21,11 @@ const findMovies = async (title: string) => {
   }
 };
 
+const getMatchedTitleMovies = (title: string) => {
+  return findMovies(title);
+};
+
 export default {
   findMovies,
+  getMatchedTitleMovies,
 };

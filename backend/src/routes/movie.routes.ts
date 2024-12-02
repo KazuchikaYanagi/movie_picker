@@ -6,9 +6,8 @@ dotenv.config();
 const movieRouter = Router();
 
 movieRouter.get("/popular", movieController.popularMovies);
+movieRouter.get("/find/:title", movieController.findMatchedTitleMovie);
 movieRouter.get("/:id", movieController.movieDetail);
 movieRouter.get("/upcoming", movieController.upcomingMovies);
-movieRouter.post("/find/", movieController.findMatchedTitleMovie);
-// movieRouter.get("/discover", movieController.discoverMovies);
 
 export default movieRouter;

@@ -13,7 +13,6 @@ const popularMovies = async (req: Request, res: Response) => {
     };
     const response = await fetch(popularMovieUrl, options);
     const data = await response.json();
-    console.log(data);
     res.json(data);
   } catch (err) {
     console.error(err);
@@ -33,43 +32,33 @@ const upcomingMovies = async (req: Request, res: Response) => {
 
     const response = await fetch(upcomingMovieUrl, options);
     const data = await response.json();
-    console.log(data);
     res.json(data);
   } catch (err) {
     console.error(err);
   }
 };
 
-const findMatchedTitleMovie = (req: Request, res: Response) => {
+const findMatchedTitleMovie = async (req: Request, res: Response) => {
   try {
-    const { title } = req.body;
-    const findMovies = movieModel.findMovies(title);
-    res.status(200).json(findMovies);
+    const { title } = req.params;
+    console.log(title);
+    const findTitleMatchedUrl = `https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=false&language=en-US&page=1`;
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${process.env.DETAILS_ACCESS_TOKEN}`,
+      },
+    };
+
+    const response = await fetch(findTitleMatchedUrl, options);
+    const data = await response.json();
+    console.log(data);
+    res.json(data);
   } catch (err) {
     console.error(err);
-    res.status(404).json({ error: `${err}` });
   }
 };
-
-// const discoverMovies = async (req: Request, res: Response) => {
-//   try {
-//     const discoverMovieUrl = `${process.env.MOVIE_DISCOVER_URL}/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
-//     const options = {
-//       method: "GET",
-//       headers: {
-//         accept: "application/json",
-//         Authorization: `Bearer ${process.env.DETAILS_ACCESS_TOKEN}`,
-//       },
-//     };
-
-//     const response = await fetch(discoverMovieUrl, options);
-//     const data = await response.json();
-//     console.log(data);
-//     res.json(data);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
 
 const movieDetail = async (req: Request<{ id: number }>, res: Response) => {
   const movieId = req.params.id;
@@ -86,7 +75,6 @@ const movieDetail = async (req: Request<{ id: number }>, res: Response) => {
 
     const response = await fetch(detailMovieUrl, options);
     const data = await response.json();
-    console.log(data);
     res.json(data);
   } catch (err) {
     console.error(err);
@@ -98,5 +86,4 @@ export default {
   movieDetail,
   upcomingMovies,
   findMatchedTitleMovie,
-  // discoverMovies,
 };

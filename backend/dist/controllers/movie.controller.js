@@ -8,11 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const movie_model_1 = __importDefault(require("../models/movie.model"));
 const popularMovies = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const popularMovieUrl = `${process.env.MOVIE_URL}/popular?language=en-US&page=1`;
@@ -25,7 +21,7 @@ const popularMovies = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         };
         const response = yield fetch(popularMovieUrl, options);
         const data = yield response.json();
-        console.log(data);
+        // console.log(data);
         res.json(data);
     }
     catch (err) {
@@ -44,24 +40,48 @@ const upcomingMovies = (req, res) => __awaiter(void 0, void 0, void 0, function*
         };
         const response = yield fetch(upcomingMovieUrl, options);
         const data = yield response.json();
-        console.log(data);
+        // console.log(data);
         res.json(data);
     }
     catch (err) {
         console.error(err);
     }
 });
-const findMatchedTitleMovie = (req, res) => {
+const findMatchedTitleMovie = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // try {
+    //   const { title } = req.body;
+    //   console.log(title, req.body);
+    //   const getMovies = movieModel.getMatchedTitleMovies(title);
+    //   // const findMovies = movieModel.findMovies(title);
+    //   // res.status(200).json(findMovies);
+    //   res.status(200).json(getMovies);
+    // } catch (err) {
+    //   console.error(err);
+    //   res.status(404).json({ error: `${err}` });
+    // }
     try {
-        const { title } = req.body;
-        const findMovies = movie_model_1.default.findMovies(title);
-        res.status(200).json(findMovies);
+        // console.log(req)
+        const { title } = req.params;
+        console.log(title);
+        const findTitleMatchedUrl = `https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=false&language=en-US&page=1`;
+        const options = {
+            method: "GET",
+            headers: {
+                accept: "application/json",
+                Authorization: `Bearer ${process.env.DETAILS_ACCESS_TOKEN}`,
+            },
+        };
+        const response = yield fetch(findTitleMatchedUrl, options);
+        const data = yield response.json();
+        console.log(data);
+        res.json(data);
+        // return data;
     }
     catch (err) {
         console.error(err);
-        res.status(404).json({ error: `${err}` });
     }
-};
+});
+;
 // const discoverMovies = async (req: Request, res: Response) => {
 //   try {
 //     const discoverMovieUrl = `${process.env.MOVIE_DISCOVER_URL}/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`;
@@ -94,7 +114,7 @@ const movieDetail = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
         };
         const response = yield fetch(detailMovieUrl, options);
         const data = yield response.json();
-        console.log(data);
+        // console.log(data);
         res.json(data);
     }
     catch (err) {
