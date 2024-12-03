@@ -14,10 +14,11 @@ const ReviewCard = ({ review, i }) => {
       <div className="flex mb-5">
         <img
           src={
-            `https://image.tmdb.org/t/p/w500${avatar_path}` ??
-            "../assets/avatar-3814049_640.png"
+            avatar_path
+              ? `https://image.tmdb.org/t/p/w500${avatar_path}`
+              : "../../public/avatar-3814049_640.png"
           }
-          alt="no image"
+          alt="avatar icon"
           className="w-10 h-10 rounded-full"
         />
 
@@ -34,7 +35,7 @@ const ReviewCard = ({ review, i }) => {
           </div>
         </p>
       </div>
-      <p>{content}</p>
+      <p className="text-sm">{content}</p>
     </div>
   );
 };
