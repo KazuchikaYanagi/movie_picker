@@ -1,9 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Header from "../features/Header";
+
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faCalendar, faStar } from "@fortawesome/free-solid-svg-icons";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css";
+
+import Header from "../features/Header";
 import ReviewCard from "../components/ReviewCard";
 
 const MovieDetail = () => {
@@ -39,7 +43,7 @@ const MovieDetail = () => {
         <Header />
       </div>
 
-      <div className="m-10">
+      <div className="m-10 h-[100vh]">
         {/* <p className="text-3xl my-5 font-bold">{movieDetail?.title}</p> */}
 
         <p className="mb-5 text-xl">{movieDetail?.overview}</p>
@@ -68,11 +72,19 @@ const MovieDetail = () => {
           {Math.round(movieDetail?.vote_average * 10) / 10}
         </p>
 
-        <ul className="flex overflow-x-scroll w-screen">
-          {movieReviews?.map((review) => (
-            <ReviewCard review={review} />
+        <Splide
+          aria-label="reviews"
+          options={{
+            autoplay: true,
+            interval: 10000,
+          }}
+        >
+          {movieReviews?.map((review, i) => (
+            <SplideSlide>
+              <ReviewCard review={review} i={i} key={i} />
+            </SplideSlide>
           ))}
-        </ul>
+        </Splide>
 
         {/* <h3 className="font-bold text-lg">Main casts</h3>
         <ul className="flex gap-5">

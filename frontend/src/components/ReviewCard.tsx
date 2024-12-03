@@ -2,12 +2,15 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ review, i }) => {
   const { author, content, author_details, created_at } = review;
   const { avatar_path, rating, username } = author_details;
+  console.log(i);
 
   return (
-    <li className="bg-slate-300 p-3 mb-5 block w-screen h-52">
+    <div
+      className={`bg-slate-300 p-8 mb-5 block w-full max-h-80 object-cover overflow-y-scroll`}
+    >
       <div className="flex mb-5">
         <img
           src={
@@ -32,7 +35,7 @@ const ReviewCard = ({ review }) => {
         </p>
       </div>
       <p>{content}</p>
-    </li>
+    </div>
   );
 };
 

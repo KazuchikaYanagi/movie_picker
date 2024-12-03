@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie<Array> }) => {
   const { poster_path, id } = movie;
   const navigate = useNavigate();
 

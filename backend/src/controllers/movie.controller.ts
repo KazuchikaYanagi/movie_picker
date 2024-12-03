@@ -3,7 +3,9 @@ import movieModel from "../models/movie.model";
 
 const popularMovies = async (req: Request, res: Response) => {
   try {
-    const popularMovieUrl = `${process.env.MOVIE_URL}/popular?language=en-US&page=1`;
+    console.log(req.params.page);
+    const { page } = req.params;
+    const popularMovieUrl = `${process.env.MOVIE_URL}/popular?language=en-US&page=${page}`;
     const options = {
       method: "GET",
       headers: {
@@ -40,9 +42,9 @@ const upcomingMovies = async (req: Request, res: Response) => {
 
 const findMatchedTitleMovie = async (req: Request, res: Response) => {
   try {
-    const { title } = req.params;
+    const { title, page } = req.params;
     console.log(title);
-    const findTitleMatchedUrl = `https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=false&language=en-US&page=1`;
+    const findTitleMatchedUrl = `https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=false&language=en-US&page=${page}`;
     const options = {
       method: "GET",
       headers: {
