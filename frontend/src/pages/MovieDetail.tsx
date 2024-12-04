@@ -17,6 +17,8 @@ const MovieDetail = () => {
   const { id } = useParams();
   console.log(id);
 
+  // const stars = Array(10).fill(0);
+
   useEffect(() => {
     const handleDetailMovie = async () => {
       try {
@@ -48,7 +50,7 @@ const MovieDetail = () => {
 
         <p className="mb-5 text-xl">{movieDetail?.overview}</p>
 
-        {/* <div className="flex mb-5 gap-5">
+        <div className="flex my-10 gap-5">
           <p className="text-purple-500">
             <FontAwesomeIcon icon={faCalendar} />
             <span className="pl-2">{movieDetail?.release_date}</span>
@@ -57,20 +59,21 @@ const MovieDetail = () => {
           <p className="text-purple-500">
             <FontAwesomeIcon icon={faClock} />
             <span className="pl-2">{movieDetail?.runtime} mins</span>
-          </p> */}
-        {movieDetail?.homepage ? (
-          <a href={movieDetail?.homepage} className="text-blue-400">
-            {movieDetail?.homepage}
-          </a>
-        ) : (
-          <p className="text-stone-500">NO URL</p>
-        )}
-        {/* </div> */}
+          </p>
 
-        <p>
-          <FontAwesomeIcon icon={faStar} className="pr-2" />
-          {Math.round(movieDetail?.vote_average * 10) / 10}
-        </p>
+          <p>
+            <FontAwesomeIcon icon={faStar} className="pr-2" />
+            {Math.round(movieDetail?.vote_average * 10) / 10}
+          </p>
+
+          {movieDetail?.homepage ? (
+            <a href={movieDetail?.homepage} className="text-blue-400">
+              {movieDetail?.homepage}
+            </a>
+          ) : (
+            <p className="text-stone-500">NO URL</p>
+          )}
+        </div>
 
         <Splide
           aria-label="reviews"
