@@ -10,7 +10,7 @@ const ReviewCard = ({ review, i }) => {
 
   return (
     <div
-      className={`bg-slate-300 p-6 mb-5 block w-full max-h-80 object-cover overflow-y-scroll rounded-md`}
+      className={`bg-slate-300 p-6 mb-10 block w-full max-h-80 object-cover overflow-y-scroll rounded-md`}
     >
       <div className="flex mb-3 justify-between items-center">
         <div className="flex flex-1 justify-center items-center">

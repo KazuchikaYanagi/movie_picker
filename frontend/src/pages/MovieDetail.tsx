@@ -9,6 +9,7 @@ import "@splidejs/react-splide/css";
 
 import Header from "../features/Header";
 import ReviewCard from "../components/ReviewCard";
+import { library } from "@fortawesome/fontawesome-svg-core";
 
 const MovieDetail = () => {
   const [movieDetail, setMovieDetail] = useState(null);
@@ -40,34 +41,39 @@ const MovieDetail = () => {
         style={{
           "--image-url": `url(https://image.tmdb.org/t/p/w500${movieDetail?.backdrop_path})`,
         }}
-        className="bg-[image:var(--image-url)] w-screen h-[80vh] bg-cover object-cover bg-no-repeat"
+        className={`${
+          "bg-[image:var(--image-url)]" ?? "bg-no-image"
+        } w-screen h-[80vh] bg-cover object-cover bg-no-repeat relative`}
       >
         <Header />
+        <p className="text-xl my-5 p-2 font-bold absolute bottom-0 right-5 backdrop-blur-md text-orange-500 ">
+          {movieDetail?.title}
+        </p>
       </div>
 
-      <div className="m-10 h-[100vh]">
-        {/* <p className="text-3xl my-5 font-bold">{movieDetail?.title}</p> */}
-
+      <div className="p-10 h-full">
         <p className="mb-5 text-xl">{movieDetail?.overview}</p>
 
         <div className="flex my-10 gap-5">
-          <p className="text-purple-500">
+          <p className="text-purple-700">
             <FontAwesomeIcon icon={faCalendar} />
-            <span className="pl-2">{movieDetail?.release_date}</span>
+            <span className="pl-2 text-2xl">{movieDetail?.release_date}</span>
           </p>
 
-          <p className="text-purple-500">
+          <p className="text-purple-700">
             <FontAwesomeIcon icon={faClock} />
-            <span className="pl-2">{movieDetail?.runtime} mins</span>
+            <span className="pl-2 text-2xl">{movieDetail?.runtime}</span> mins
           </p>
 
-          <p>
+          <p className="text-purple-700">
             <FontAwesomeIcon icon={faStar} className="pr-2" />
-            {Math.round(movieDetail?.vote_average * 10) / 10}
+            <span className="text-2xl">
+              {Math.round(movieDetail?.vote_average * 10) / 10}
+            </span>
           </p>
 
           {movieDetail?.homepage ? (
-            <a href={movieDetail?.homepage} className="text-blue-400">
+            <a href={movieDetail?.homepage} className="text-blue-600">
               {movieDetail?.homepage}
             </a>
           ) : (
@@ -75,22 +81,28 @@ const MovieDetail = () => {
           )}
         </div>
 
-        <Splide
-          aria-label="reviews"
-          options={{
-            autoplay: true,
-            interval: 10000,
-          }}
-        >
-          {movieReviews?.map((review, i) => (
-            <SplideSlide>
-              <ReviewCard review={review} i={i} key={i} />
-            </SplideSlide>
-          ))}
-        </Splide>
+        {movieReviews.length !== 0 ? (
+          <Splide
+            aria-label="reviews"
+            options={{
+              autoplay: true,
+              interval: 10000,
+            }}
+          >
+            {movieReviews?.map((review, i) => (
+              <SplideSlide>
+                <ReviewCard review={review} i={i} key={i} />
+              </SplideSlide>
+            ))}
+          </Splide>
+        ) : (
+          <div className="flex justify-center items-center uppercase w-full h-64 bg-purple-900 mb-10 text-4xl">
+            no reviews...
+          </div>
+        )}
 
-        {/* <h3 className="font-bold text-lg">Main casts</h3>
-        <ul className="flex gap-5">
+        <h3 className="font-bold text-lg">Main casts</h3>
+        <ul className="flex gap-5 mb-10">
           {movieCredits?.cast.map((c, i) => {
             if (i < 3)
               return (
@@ -99,16 +111,28 @@ const MovieDetail = () => {
                     <img
                       src={`https://image.tmdb.org/t/p/w500${c.profile_path}`}
                       alt="cast-image"
-                      className="w-36 h-auto rounded-md"
+                      className="w-20 h-auto rounded-md object-cover"
                     />
                   ) : (
-                    <img src="../assets/avatar-3814049_640.png" alt="avatar" />
+                    <img
+                      src="../../public/avatar-3814049_640.png"
+                      alt="avatar"
+                      className="w-20 h-[7.5rem] rounded-md object-cover"
+                    />
                   )}
-                  <p>{c.name}</p>
+                  <p className="font-bold text-sm">{c.name}</p>
+                  <p className="text-purple-700">({c.character})</p>
                 </li>
               );
           })}
-        </ul> */}
+        </ul>
+
+        <p className="text-xl">Genres</p>
+        <ul className="flex gap-5">
+          {movieDetail?.genres.map((g) => (
+            <li className="text-purple-700">{g.name}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

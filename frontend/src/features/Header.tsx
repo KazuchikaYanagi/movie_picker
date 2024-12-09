@@ -3,13 +3,13 @@ import SearchBar from "../components/SearchBar";
 
 const Header = () => {
   return (
-    <div className="sticky top-0 z-10">
-      <nav className="flex items-center justify-around bg-opacity-0 backdrop-blur-md h-12">
+    <div className="fixed z-10 w-screen">
+      <nav className="flex items-center justify-around h-12 bg-opacity-0 backdrop-blur-md">
         <NavLink to={`/`}>
           <img
             src="../../public/movie_picker_org.png"
             alt="movie-picker-logo"
-            className="h-10 w-auto"
+            className="w-auto h-10"
           />
         </NavLink>
         <SearchBar />

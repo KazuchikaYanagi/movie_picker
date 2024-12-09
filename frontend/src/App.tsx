@@ -8,6 +8,12 @@ export const MovieData = createContext();
 
 const App = () => {
   const [search, setSearch] = useState<string>("");
+  const [backdropImage, setBackdropImage] = useState({});
+
+  // const handleMovieInfo = () => {
+  //   setBackdropImage(movie.backdrop_path);
+  //   console.log(movie.backdrop_path);
+  // };
 
   return (
     <>
@@ -16,6 +22,8 @@ const App = () => {
         value={{
           search,
           setSearch,
+          backdropImage,
+          setBackdropImage,
         }}
       >
         <Routes>

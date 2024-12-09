@@ -15,11 +15,11 @@ const SearchBar = () => {
         // onChange={(e) => handleFetchData(e.target.value)}
         onChange={(e) => setSearch(e.target.value)}
         value={search}
-        className="border p-1 rounded-full pl-8"
+        className="p-1 pl-8 bg-orange-200 rounded-full outline-none"
       />
       <FontAwesomeIcon
         icon={faSearch}
-        className="absolute left-3 text-stone-400"
+        className="absolute text-orange-400 left-3"
       />
     </div>
   );
