@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <nav className="flex items-center justify-around h-12 bg-opacity-0 backdrop-blur-md">
         <NavLink to={`/`}>
           <img
-            src="../../public/logo.svg"
+            src="/public/logo.svg"
             alt="movie-picker-logo"
             className="w-auto h-10"
           />

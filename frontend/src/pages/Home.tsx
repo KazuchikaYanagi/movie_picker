@@ -27,7 +27,6 @@ const Home: React.FC = () => {
           `https://movie-picker-backend.vercel.app/movies/popular/${currentPage}`
         );
         const data = res.data.results;
-        console.log(data);
         setFetchPopularMovies(data);
       } catch (err) {
         console.error(err);
