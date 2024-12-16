@@ -36,7 +36,7 @@ const Home: React.FC = () => {
   }, [currentPage]);
 
   useEffect(() => {
-    const getDiscoverMovies = async (title: string, page: number) => {
+    const getDiscoverMovies = async (search: string, page: number) => {
       try {
         if (search.length < 3) return;
 
