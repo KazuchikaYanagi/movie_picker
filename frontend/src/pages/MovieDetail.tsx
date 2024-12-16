@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faCalendar, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 // import "@splidejs/react-splide/css";
+import avatar from "../../public/avatar-3814049_640.png";
 
 import Header from "../features/Header";
 import ReviewCard, { Review } from "../components/ReviewCard";
@@ -133,7 +134,7 @@ const MovieDetail = () => {
                     />
                   ) : (
                     <img
-                      src="../../public/avatar-3814049_640.png"
+                      src={avatar}
                       alt="avatar"
                       className="w-20 h-[7.5rem] rounded-md object-cover"
                     />
