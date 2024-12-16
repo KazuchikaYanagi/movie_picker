@@ -24,7 +24,7 @@ const Home: React.FC = () => {
     const getPopularMovies = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3003/movies/popular/${currentPage}`
+          `https://movie-picker-backend.vercel.app/movies/popular/${currentPage}`
         );
         const data = res.data.results;
         console.log(data);
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
         console.log(title);
         console.log(title.search);
         const res = await axios.get(
-          `http://localhost:3003/movies/find/${search}/${page}`
+          `https://movie-picker-backend.vercel.app/movies/find/${search}/${page}`
         );
         console.log("movie fetching with matching titles");
         console.log(res.data.results);
