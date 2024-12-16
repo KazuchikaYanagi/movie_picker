@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { MovieData } from "../types/MovieContext";
+import noImage from "../../public/no_image.png";
 
 export type Movie = {
   poster_path: string | null;
@@ -26,12 +27,10 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   const { setBackdropImage } = context;
 
   const handleMovieInfo = () => {
-    console.log({ backdrop_path, title, release_date, vote_average });
     setBackdropImage({ backdrop_path, title, release_date, vote_average });
   };
 
   const handleId: () => void = () => {
-    console.log(id);
     navigate(`/movie/${id}`);
   };
   return (
@@ -44,7 +43,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           src={
             poster_path
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : "../../public/no_image.png"
+              : noImage
           }
           className="w-32 rounded-md"
           alt="image"

@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import avatar from "../../public/avatar-3814049_640.png";
 
 export interface AuthorDetails {
   avatar_path: string;
@@ -52,7 +53,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
           src={
             avatar_path
               ? `https://image.tmdb.org/t/p/w500${avatar_path}`
-              : "../../public/avatar-3814049_640.png"
+              : avatar
           }
           alt="avatar icon"
           className="w-8 h-8 rounded-full"

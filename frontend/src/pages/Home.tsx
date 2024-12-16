@@ -40,13 +40,9 @@ const Home: React.FC = () => {
       try {
         if (search.length < 3) return;
 
-        console.log(title);
-        console.log(title.search);
         const res = await axios.get(
           `https://movie-picker-backend.vercel.app/movies/find/${search}/${page}`
         );
-        console.log("movie fetching with matching titles");
-        console.log(res.data.results);
         setFetchDiscoverMovies(res.data?.results);
         return res;
       } catch (err) {
