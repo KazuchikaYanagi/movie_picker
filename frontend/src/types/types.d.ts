@@ -7,7 +7,7 @@ declare module "@splidejs/react-splide" {
     interval?: number;
     arrows?: boolean;
     pagination?: boolean;
-    [key: string]: any; // 他のオプションを許容する
+    [key: string]: any;
   }
 
   interface SplideProps {
