@@ -39,7 +39,7 @@ const MovieDetail = () => {
     const handleDetailMovie = async () => {
       try {
         const { data } = await axios.get(
-          `https://movie-picker-backend.vercel.app//movies/${id}`
+          `https://movie-picker-backend.vercel.app/movies/${id}`
         );
         console.log(data);
         setMovieDetail(data);
