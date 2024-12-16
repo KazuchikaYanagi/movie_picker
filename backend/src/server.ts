@@ -9,7 +9,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://movie-picker-flax.vercel.app/",
+    origin: "https://movie-picker-flax.vercel.app",
     // credentials: true,
   })
 );
