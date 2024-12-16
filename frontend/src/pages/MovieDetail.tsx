@@ -103,7 +103,6 @@ const MovieDetail = () => {
         {movieReviews.length !== 0 ? (
           <Splide
             aria-label="reviews"
-            type="slide"
             options={{
               autoplay: true,
               interval: 10000,
@@ -111,7 +110,7 @@ const MovieDetail = () => {
           >
             {movieReviews?.map((review, i) => (
               <SplideSlide>
-                <ReviewCard review={review} key={i} />
+                <ReviewCard review={review} i={i} key={i} />
               </SplideSlide>
             ))}
           </Splide>

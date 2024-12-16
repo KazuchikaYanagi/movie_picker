@@ -12,7 +12,7 @@ declare module "@splidejs/react-splide" {
 
   interface SplideProps {
     options?: Partial<SplideOptions>;
-    children: ReactNode;
+    // children: ReactNode;
     [key: string]: any;
   }
 

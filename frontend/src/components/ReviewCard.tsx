@@ -16,6 +16,7 @@ export interface Review {
 
 export interface ReviewCardProps {
   review: Review;
+  i: number;
 }
 
 const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
