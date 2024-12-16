@@ -38,7 +38,9 @@ const MovieDetail = () => {
   useEffect(() => {
     const handleDetailMovie = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:3003/movies/${id}`);
+        const { data } = await axios.get(
+          `https://movie-picker-backend.vercel.app//movies/${id}`
+        );
         console.log(data);
         setMovieDetail(data);
         setMovieCredits(data.credits);
