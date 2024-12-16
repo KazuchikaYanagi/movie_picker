@@ -4,7 +4,7 @@ import SearchBar from "../components/SearchBar";
 const Header: React.FC = () => {
   return (
     <div className="fixed z-10 w-screen">
-      <nav className="items-center justify-around hidden h-12 bg-opacity-0 lg:flex backdrop-blur-md">
+      <nav className="flex items-center justify-around h-12 bg-opacity-0 backdrop-blur-md">
         <NavLink to={`/`}>
           <img
             src="../../public/logo.svg"
