@@ -83,19 +83,19 @@ const Home: React.FC = () => {
               })`,
             } as React.CSSProperties
           }
-          className="bg-[image:var(--image-url)] w-full h-[70vh] bg-cover fixed z-10 brightness-50"
+          className="bg-[image:var(--image-url)] w-full h-[60vh] md:h-[70vh] bg-cover object-contain fixed z-10 brightness-50 hidden md:block"
         ></span>
         <Header />
 
         <div className="fixed z-20">
-          <p className="absolute w-[100vw] text-3xl font-bold text-orange-500 bg-opacity-0 top-28 left-7">
+          <p className="absolute w-[100vw] md:text-3xl font-bold text-orange-500 bg-opacity-0 top-28 left-7 hidden md:block">
             {title || fetchPopularMovies[0]?.title}
           </p>
-          <p className="absolute w-28 text-orange-500 text-2xl bg-opacity-0 top-[64vh] w-44 text-center left-[65vw] font-bold">
+          <p className="absolute text-orange-500 md:text-2xl bg-opacity-0 top-[50vh] md:top-[64vh] w-44 text-center left-[30vw] md:left-[65vw] font-bold  hidden md:block">
             <FontAwesomeIcon icon={faCalendar} className="mr-2" />
             {release_date || fetchPopularMovies[0]?.release_date}
           </p>
-          <p className="absolute w-28 text-orange-500 text-2xl bg-opacity-0 top-[64vh] left-[85vw] text-center font-bold">
+          <p className="absolute w-28 text-orange-500 md:text-2xl bg-opacity-0 top-[50vh] md:top-[64vh] left-[70vw] md:left-[85vw] text-center font-bold hidden md:block">
             <FontAwesomeIcon icon={faStar} className="mr-2" />
             {Number(Math.round((vote_average * 100) / 10).toFixed(2)) / 10 ||
               Number(
@@ -110,10 +110,10 @@ const Home: React.FC = () => {
       <main className="pb-5 bg-purple-950">
         {fetchDiscoverMovies.length > 1 ? (
           <>
-            <h3 className="text-lg font-bold text-orange-500 uppercase p-3 pt-[72vh]">
+            <h3 className="text-lg font-bold text-orange-500 uppercase p-3 pt-14 md:pt-[72vh]">
               Found movies
             </h3>
-            <ul className="flex w-full overflow-x-auto no-scrollbar">
+            <ul className="grid w-full grid-cols-3 overflow-x-auto md:flex no-scrollbar gap-y-3 md:grid-rows-1">
               {fetchDiscoverMovies.map((movie) => (
                 <MovieCard movie={movie} />
               ))}
@@ -148,10 +148,10 @@ const Home: React.FC = () => {
           </>
         ) : (
           <>
-            <h3 className="text-orange-500 uppercase pt-[72vh] font-bold text-xl p-5">
+            <h3 className="text-orange-500 uppercase pt-14 md:pt-[72vh] font-bold text-xl p-5">
               trend movie
             </h3>
-            <ul className="flex w-full overflow-x-auto no-scrollbar">
+            <ul className="grid w-full grid-cols-3 gap-y-3 md:flex md:grid-rows-1 md:overflow-x-auto md:no-scrollbar">
               {fetchPopularMovies.map((movie) => (
                 <MovieCard movie={movie} key={movie.id} />
               ))}
