@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { MovieData } from "../types/MovieContext";
 import noImage from "../../public/no_image.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 export type Movie = {
   poster_path: string | null;
@@ -36,7 +38,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <>
       <li
-        className="flex-none mx-5 transition-all duration-150 hover:translate-y-2 "
+        className="flex-none mx-5 text-center transition-all duration-150 hover:translate-y-2"
         onMouseEnter={handleMovieInfo}
       >
         <img
@@ -45,10 +47,17 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
               ? `https://image.tmdb.org/t/p/w500${poster_path}`
               : noImage
           }
-          className="w-32 rounded-md"
+          className="m-auto rounded-md w-28 md:w-32"
           alt="image"
           onClick={handleId}
         />
+        <div className="text-orange-600 md:hidden">
+          <div className="text-center">
+            <FontAwesomeIcon icon={faStar} className="mr-2" />
+            {Number(Math.round((vote_average * 100) / 10).toFixed(2)) / 10 ||
+              Number(Math.round((vote_average * 100) / 10).toFixed(2)) / 10}
+          </div>
+        </div>
       </li>
     </>
   );

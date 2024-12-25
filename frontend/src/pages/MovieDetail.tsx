@@ -62,34 +62,41 @@ const MovieDetail = () => {
         }
         className={`
           bg-[image:var(--image-url)]
-         w-screen h-[80vh] bg-cover object-cover bg-no-repeat relative`}
+         w-screen h-52 md:h-[40vh] lg:h-[80vh] bg-cover object-cover bg-no-repeat relative`}
       >
         <Header />
-        <p className="absolute bottom-0 p-2 my-5 text-xl font-bold text-orange-500 right-5 backdrop-blur-md ">
+        <p className="absolute bottom-0 p-2 my-5 text-sm font-bold text-orange-500 md:text-xl right-5 backdrop-blur-md">
           {movieDetail?.title}
         </p>
       </div>
 
       <div className="h-full p-10">
-        <p className="mb-5 text-xl">{movieDetail?.overview}</p>
+        <p className="my-5 text-balance md:text-xl">{movieDetail?.overview}</p>
 
-        <div className="flex gap-5 my-10">
-          <p className="text-purple-700">
-            <FontAwesomeIcon icon={faCalendar} />
-            <span className="pl-2 text-2xl">{movieDetail?.release_date}</span>
-          </p>
+        <div className="flex flex-col gap-5 my-10">
+          <div className="flex justify-around">
+            <p className="text-purple-700">
+              <FontAwesomeIcon icon={faCalendar} />
+              <span className="pl-2 text-sm md:text-2xl">
+                {movieDetail?.release_date}
+              </span>
+            </p>
 
-          <p className="text-purple-700">
-            <FontAwesomeIcon icon={faClock} />
-            <span className="pl-2 text-2xl">{movieDetail?.runtime}</span> mins
-          </p>
+            <p className="text-purple-700">
+              <FontAwesomeIcon icon={faClock} />
+              <span className="pl-2 text-sm md:text-2xl">
+                {movieDetail?.runtime}
+              </span>
+              mins
+            </p>
 
-          <p className="text-purple-700">
-            <FontAwesomeIcon icon={faStar} className="pr-2" />
-            <span className="text-2xl">
-              {Math.round((movieDetail?.vote_average ?? 0) * 10) / 10}
-            </span>
-          </p>
+            <p className="text-purple-700">
+              <FontAwesomeIcon icon={faStar} className="pr-2" />
+              <span className="text-sm md:text-2xl">
+                {Math.round((movieDetail?.vote_average ?? 0) * 10) / 10}
+              </span>
+            </p>
+          </div>
 
           {movieDetail?.homepage ? (
             <a href={movieDetail?.homepage} className="text-blue-600">
