@@ -39,7 +39,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
                   key={i}
                   className={`${
                     rating > i ? "text-amber-400" : "text-stone-400"
-                  } text-xl`}
+                  } text-lg md:text-xl`}
                 />
               );
             })}
