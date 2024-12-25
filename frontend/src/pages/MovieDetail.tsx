@@ -62,7 +62,7 @@ const MovieDetail = () => {
         }
         className={`
           bg-[image:var(--image-url)]
-         w-screen h-52 md:h-[40vh] lg:h-[80vh] bg-cover object-cover bg-no-repeat relative`}
+         w-screen h-52 lg:h-[80vh] bg-cover object-cover bg-no-repeat relative`}
       >
         <Header />
         <p className="absolute bottom-0 p-2 my-5 text-sm font-bold text-orange-500 md:text-xl right-5 backdrop-blur-md">
