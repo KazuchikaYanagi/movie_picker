@@ -8,6 +8,7 @@
 
 Link: [Movie Picker](https://movie-picker-flax.vercel.app/)
 
+
 ## 使用技術
 
 - React 18.3.1
@@ -18,3 +19,4 @@ Link: [Movie Picker](https://movie-picker-flax.vercel.app/)
 ## 取り組みと実績
 
 フルスタックでこのアプリを作成しました。検索機能のクライアントとサーバーのデータ通信、映画カードホバー時のホーム画像変更、レビュースライダー作成に苦労しました。
+
