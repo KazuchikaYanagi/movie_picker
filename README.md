@@ -1,7 +1,22 @@
-# movie_picker
+# MOVIE PICKER
+
+## 概要
+
+映画検索サイトです。
+過去作品から最新作まで幅広い映画を見つけることができます。
+映画カードをクリックすると、より詳細な情報を確認することができます。
 
 Link: [Movie Picker](https://movie-picker-flax.vercel.app/)
 
 
-https://github.com/user-attachments/assets/5d696834-189e-4ea2-8e47-e7625e8b23da
+## 使用技術
+
+- React 18.3.1
+- TypeScript 5.6.2
+- Node.js
+- Express 5.0.0
+
+## 取り組みと実績
+
+フルスタックでこのアプリを作成しました。検索機能のクライアントとサーバーのデータ通信、映画カードホバー時のホーム画像変更、レビュースライダー作成に苦労しました。
 
