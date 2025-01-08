@@ -12,6 +12,7 @@ MOVIE PICKER is a movie search application. Main features are to be able to find
 - TypeScript 5.6.2
 - Node.js
 - Express 5.0.0
+- Tailwind CSS 3.4.15
 
 ## Achievement
 
@@ -31,6 +32,7 @@ Link: [Movie Picker](https://movie-picker-flax.vercel.app/)
 - TypeScript 5.6.2
 - Node.js
 - Express 5.0.0
+- Tailwind CSS 3.4.15
 
 ## 取り組みと実績
 
