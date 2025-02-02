@@ -2,6 +2,7 @@ import { faCalendar, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import NoImage from "../../public/no_image.png";
 import MovieCard, { Movie } from "../components/MovieCard";
 import NextPageButton from "../components/NextPageButton";
 import PrevPageButton from "../components/PrevPageButton";
@@ -78,10 +79,10 @@ const Home: React.FC = () => {
         <span
           style={
             {
-              "--image-url": `url(https://image.tmdb.org/t/p/w500${
-                !backdrop_path
-                  ? fetchPopularMovies[0]?.backdrop_path
-                  : backdrop_path
+              "--image-url": `url(${
+                backdrop_path
+                  ? `https://image.tmdb.org/t/p/w500${backdrop_path}`
+                  : NoImage
               })`,
             } as React.CSSProperties
           }
