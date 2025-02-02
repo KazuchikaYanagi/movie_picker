@@ -1,3 +1,4 @@
+import AboutImage from "../../public/night_theatre.jpg";
 import Footer from "../features/Footer";
 import Header from "../features/Header";
 
@@ -6,7 +7,7 @@ const About = () => {
     <div className="h-screen text-orange-500">
       <Header />
       <img
-        src="../../public/night_theatre.jpg"
+        src={AboutImage}
         alt="night_theatre"
         className="object-cover w-screen brightness-50 h-4/5"
       />
