@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import { faCalendar, faStar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import MovieCard, { Movie } from "../components/MovieCard";
+import NextPageButton from "../components/NextPageButton";
+import PrevPageButton from "../components/PrevPageButton";
 import Header from "../features/Header";
 import { MovieData } from "../types/MovieContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Home: React.FC = () => {
   const context = useContext(MovieData);
@@ -108,7 +110,7 @@ const Home: React.FC = () => {
       </div>
 
       <main className="pb-5 bg-purple-950">
-        {fetchDiscoverMovies.length > 1 ? (
+        {fetchDiscoverMovies.length > 1 && search.length > 0 ? (
           <>
             <h3 className="text-lg font-bold text-orange-500 uppercase p-3 pt-14 md:pt-[72vh]">
               Found movies
@@ -123,13 +125,7 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-center pt-4">
               {/* previous page button */}
               {currentDiscoverPage !== 1 && (
-                <button
-                  type="button"
-                  onClick={handlePreviousDiscoverPage}
-                  className="flex items-center px-2 text-4xl text-opacity-0 bg-orange-500 rounded-full"
-                >
-                  &larr; <span className="pl-2 text-lg">Prev</span>
-                </button>
+                <PrevPageButton onPrevPage={handlePreviousDiscoverPage} />
               )}
 
               <span className="px-4 text-2xl text-orange-500">
@@ -137,13 +133,7 @@ const Home: React.FC = () => {
               </span>
 
               {/* next page button */}
-              <button
-                type="submit"
-                onClick={handleNextDiscoverPage}
-                className="flex items-center px-2 text-4xl bg-orange-500 rounded-full text-opacity-10"
-              >
-                <span className="pr-2 text-lg">Next</span> &rarr;
-              </button>
+              <NextPageButton onNextPage={handleNextDiscoverPage} />
             </div>
           </>
         ) : (
@@ -160,13 +150,7 @@ const Home: React.FC = () => {
             <div className="flex items-center justify-center pt-4">
               {/* previous page button */}
               {currentPage !== 1 && (
-                <button
-                  type="button"
-                  onClick={handlePreviousPage}
-                  className="flex items-center px-2 text-4xl bg-orange-500 rounded-full text-opacity-10"
-                >
-                  &larr; <span className="pl-2 text-lg">Prev</span>
-                </button>
+                <PrevPageButton onPrevPage={handlePreviousPage} />
               )}
 
               <span className="px-4 text-2xl text-orange-500">
@@ -174,13 +158,7 @@ const Home: React.FC = () => {
               </span>
 
               {/* next page button */}
-              <button
-                type="submit"
-                onClick={handleNextPage}
-                className="flex items-center px-2 text-4xl bg-orange-500 rounded-full text-opacity-10"
-              >
-                <span className="pr-2 text-lg">Next</span> &rarr;
-              </button>
+              <NextPageButton onNextPage={handleNextPage} />
             </div>
           </>
         )}

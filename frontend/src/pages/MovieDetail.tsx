@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import axios from "axios";
+import { faCalendar, faClock, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faCalendar, faStar } from "@fortawesome/free-solid-svg-icons";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import axios from "axios";
 import avatar from "../../public/avatar-3814049_640.png";
 
-import Header from "../features/Header";
+import BackButton from "../components/BackButton";
 import ReviewCard, { Review } from "../components/ReviewCard";
+import Header from "../features/Header";
 
 interface MovieDetail {
   title: string;
@@ -71,6 +72,8 @@ const MovieDetail = () => {
       </div>
 
       <div className="h-full p-10">
+        <BackButton />
+
         <p className="my-5 text-balance md:text-xl">{movieDetail?.overview}</p>
 
         <div className="flex flex-col gap-5 my-10">
