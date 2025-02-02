@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import SearchBar from "../components/SearchBar";
 import logo from "../../public/logo.svg";
+import SearchBar from "../components/SearchBar";
 
 const Header: React.FC = () => {
   return (
-    <div className="fixed z-10 w-screen">
+    <header className="fixed z-10 w-screen font-bold">
       <nav className="flex items-center justify-around h-12 bg-opacity-0 backdrop-blur-md">
         <NavLink to={`/`}>
           <img
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           About
         </NavLink>
       </nav>
-    </div>
+    </header>
   );
 };
 
