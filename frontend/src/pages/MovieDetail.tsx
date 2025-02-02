@@ -7,6 +7,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
 import axios from "axios";
 import avatar from "../../public/avatar-3814049_640.png";
+import NoImage from "../../public/no_image.png";
 
 import BackButton from "../components/BackButton";
 import ReviewCard, { Review } from "../components/ReviewCard";
@@ -58,7 +59,11 @@ const MovieDetail = () => {
       <div
         style={
           {
-            "--image-url": `url(https://image.tmdb.org/t/p/w500${movieDetail?.backdrop_path})`,
+            "--image-url": `url(${
+              movieDetail?.backdrop_path
+                ? `https://image.tmdb.org/t/p/w500${movieDetail?.backdrop_path}`
+                : NoImage
+            })`,
           } as React.CSSProperties
         }
         className={`
